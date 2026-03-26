@@ -1,6 +1,4 @@
-package io.github.rubensrabelo.project.product.model;
-
-import java.math.BigDecimal;
+package io.github.rubensrabelo.project.client.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,28 +9,49 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "clients")
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 150, nullable = false)
     private String name;
 
-    @Column(nullable = false, precision = 16, scale = 2)
-    private BigDecimal unitValue;
+    @Column(length = 11, nullable = false)
+    private String cpf;
+
+    @Column(length = 100)
+    private String street;
+
+    @Column(length = 10)
+    private String number;
+
+    @Column(length = 100)
+    private String neighborhood;
+
+    @Column(length = 150)
+    private String email;
+
+    @Column(length = 20)
+    private String phone;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private Boolean isActive;
 
-    public Product() {
+    public Client() {
     }
 
-    public Product(String name, BigDecimal unitValue, Boolean isActive) {
+    public Client(String name, String cpf, String street, String number, String neighborhood, String email,
+            String phone, Boolean isActive) {
         this.name = name;
-        this.unitValue = unitValue;
+        this.cpf = cpf;
+        this.street = street;
+        this.number = number;
+        this.neighborhood = neighborhood;
+        this.email = email;
+        this.phone = phone;
         this.isActive = isActive != null ? isActive : true;
     }
 
@@ -58,12 +77,52 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getUnitValue() {
-        return unitValue;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setUnitValue(BigDecimal unitValue) {
-        this.unitValue = unitValue;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Boolean getIsActive() {
@@ -90,7 +149,7 @@ public class Product {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Product other = (Product) obj;
+        Client other = (Client) obj;
         if (id == null) {
             if (other.id != null)
                 return false;

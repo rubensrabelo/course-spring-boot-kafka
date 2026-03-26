@@ -13,6 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Product p SET p.active = false WHERE p.id = :id")
+    @Query("UPDATE Product p SET p.isActive = false WHERE p.id = :id")
     int softDelete(Long id);
 }
