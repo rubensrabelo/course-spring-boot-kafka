@@ -1,0 +1,7 @@
+# Variáveis de ambiente
+.env
+.env.*
+*.env
+
+# Pasta para salvar dos dados do Postgres no Docker
+compose/database/data/
