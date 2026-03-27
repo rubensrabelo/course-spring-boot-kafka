@@ -29,7 +29,7 @@ public class ClientController {
 
     @GetMapping(
         value = "/{id}",
-        consumes = {MediaType.APPLICATION_JSON_VALUE}
+        produces = {MediaType.APPLICATION_JSON_VALUE}
     )
     public ResponseEntity<ClientResponseDTO> findById(@PathVariable Long id) {
         ClientResponseDTO response = service.findById(id);

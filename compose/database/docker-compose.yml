@@ -16,8 +16,8 @@ services:
       - ./init:/docker-entrypoint-initdb.d
 
     networks:
-      - icompras-network
+      - ipurchases-network
 
 networks:
-  icompras-network:
-    name: icompras-network
+  ipurchases-network:
+    name: ipurchases-network

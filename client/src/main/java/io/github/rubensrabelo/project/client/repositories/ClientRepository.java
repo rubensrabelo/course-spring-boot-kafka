@@ -13,6 +13,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Client c SET c.isActive = false WHERE c.id := id")
+    @Query("UPDATE Client c SET c.isActive = false WHERE c.id = :id")
     int softDelete(Long id);
 }

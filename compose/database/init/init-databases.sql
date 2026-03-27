@@ -1,3 +1,3 @@
-CREATE DATABASE icomprasprodutos;
-CREATE DATABASE icompraspedidos;
-CREATE DATABASE icomprasclientes;
+CREATE DATABASE ipurchases_products;
+CREATE DATABASE ipurchases_orders;
+CREATE DATABASE ipurchases_clients;
