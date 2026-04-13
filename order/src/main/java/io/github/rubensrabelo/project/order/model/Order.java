@@ -20,7 +20,7 @@ import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "orders")
-public class Orders {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,10 +52,10 @@ public class Orders {
     @Transient
     private CustomerRepresentation customerRepresentation;
 
-    public Orders() {
+    public Order() {
     }
 
-    public Orders(Long idClient, LocalDateTime orderDate, BigDecimal total, String paymentKey, String observations,
+    public Order(Long idClient, LocalDateTime orderDate, BigDecimal total, String paymentKey, String observations,
             OrderStatus status, String trackingCode, String urlInvoice, PaymentDetails paymentDetails) {
         this.idClient = idClient;
         this.orderDate = orderDate;
@@ -180,7 +180,7 @@ public class Orders {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Orders other = (Orders) obj;
+        Order other = (Order) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
